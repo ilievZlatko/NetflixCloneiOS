@@ -18,7 +18,8 @@ let exampleMovie1 = Movie(
     numberOfSeasons: 1,
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
-    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel"
+    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: [exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7]
 )
 
 let exampleMovie2 = Movie(
@@ -32,6 +33,7 @@ let exampleMovie2 = Movie(
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
     cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: [],
     promotionHeadline: "Best Rated Show"
 )
 
@@ -45,7 +47,8 @@ let exampleMovie3 = Movie(
     numberOfSeasons: 3,
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
-    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel"
+    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: []
 )
 
 let exampleMovie4 = Movie(
@@ -59,6 +62,7 @@ let exampleMovie4 = Movie(
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
     cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: [],
     promotionHeadline: "New Episodes Coming Soon"
 )
 
@@ -72,7 +76,8 @@ let exampleMovie5 = Movie(
     numberOfSeasons: 5,
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
-    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel"
+    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: []
 )
 
 let exampleMovie6 = Movie(
@@ -86,10 +91,28 @@ let exampleMovie6 = Movie(
     defaultEpisodeInfo: exampleEpisodeInfo1,
     creators: "Baran do Odan, Jantje Friese",
     cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: [],
     promotionHeadline: "Watch Season 6 Now"
 )
 
-let exampleMovies: [Movie] = [exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6]
+let exampleMovie7 = Movie(
+    id: UUID().uuidString,
+    name: "Men In Black",
+    thumbnailURL: URL(string: "https://picsum.photos/200/306")!,
+    categories: ["Dystopian", "Exciting", "Suspensful", "Sci-Fi TV"],
+    year: 2016,
+    rating: "TV-MA",
+    numberOfSeasons: 1,
+    defaultEpisodeInfo: exampleEpisodeInfo1,
+    creators: "Baran do Odan, Jantje Friese",
+    cast: "Louis Hofmann, Oliver Masucci, jordis Triebel",
+    moreLikeThisMovies: [],
+    promotionHeadline: "Watch Season 1 Now"
+)
+
+var exampleMovies: [Movie] {
+    return [exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7].shuffled()
+}
 
 let exampleEpisodeInfo1 = CurrentEpisodeInfo(episodeName: "Beginnings and Endings", description: "Six months after the disappearances, the police form a task force. In 2052, Jonas learns that most of Winden perished in an apocalyptic event.", season: 2, episode: 1)
 
