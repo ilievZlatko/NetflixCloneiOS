@@ -42,7 +42,7 @@ struct MovieDetail: View {
                         // close this window
                     }, label: {
                         ZStack(alignment: .center) {
-                            Circle().fill(Color.white).opacity(0.2).frame(width: 28, height: 28)
+                            Circle().fill(Color.black).opacity(0.4).frame(width: 28, height: 28)
                             Image(systemName: "xmark")
                                 .font(.system(size: 16))
                         }
