@@ -25,12 +25,12 @@ struct SmallVerticalButton: View {
         Button(action: {
             action()
         }, label: {
-            VStack {
+            VStack(spacing: 10) {
                 Image(systemName: imageName)
                     .foregroundColor(.white)
 
                 Text(text)
-                    .foregroundColor(.white)
+                    .foregroundColor(.gray)
                     .font(.system(size: 14))
                     .bold()
             }

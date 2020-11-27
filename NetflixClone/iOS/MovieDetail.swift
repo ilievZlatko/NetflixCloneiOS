@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct MovieDetail: View {
     var movie: Movie
@@ -13,8 +14,25 @@ struct MovieDetail: View {
     let screen = UIScreen.main.bounds
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color.black.edgesIgnoringSafeArea(.all)
+
+            ZStack {
+                KFImage(movie.thumbnailURL)
+                    .resizable()
+                    .scaledToFill()
+                    .blur(radius: 20)
+
+                Rectangle()
+                    .fill(LinearGradient(
+                            gradient: Gradient(colors: [Color.black.opacity(0.05), Color.black.opacity(1)]),
+                            startPoint: .top,
+                            endPoint: .bottom))
+                    .frame(height: 360)
+            }
+            .frame(height: 360)
+            .clipped()
+            .edgesIgnoringSafeArea(.top)
 
             VStack {
                 HStack {
@@ -54,10 +72,28 @@ struct MovieDetail: View {
                         CurrentEpisodeInformation(movie: movie)
                         CastInfo(movie: movie)
 
+                        HStack(spacing: 60) {
+                            SmallVerticalButton(text: "My List", isOnImage: "checkmark", isOffImage: "plus", isOn: true) {
+                                //
+                            }
+
+                            SmallVerticalButton(text: "Rate", isOnImage: "hand.thumbsup.fill", isOffImage: "hand.thumbsup", isOn: true) {
+                                //
+                            }
+
+                            SmallVerticalButton(text: "Share", isOnImage: "square.and.arrow.up", isOffImage: "square.and.arrow.up", isOn: true) {
+                                //
+                            }
+
+                            Spacer()
+                        }
+                        .padding(.leading, 20)
+
+//                        CustomTabSwitcher()
+
                     }
                     .padding(.horizontal, 10)
                 }
-
                 Spacer()
             }
             .foregroundColor(.white)
